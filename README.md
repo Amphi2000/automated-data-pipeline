@@ -1,32 +1,31 @@
-# Backlink Prospecting Pipeline
+### Automated Data Collection & Scoring Pipeline
 
-Four tools that automate the full backlink outreach workflow — 
-from finding prospects to sending emails.
+End-to-end pipeline for automated prospect discovery, data extraction, deduplication, scoring, and outreach sequencing. Built to eliminate manual data work across thousands of targets.
 
-## The Pipeline
+---
 
-### 1. `backlink_collector` — Google Search Scraper
-Scrapes Google search results and collects URLs into a dataset. Supports a queue 
-system for running multiple searches hands-free with automatic pagination.
+#### 1. `data_collector` — Automated Data Collection
+Scrapes and collects target URLs at scale. Supports queue-based batch processing with automatic pagination.
 
-### 2. `libguide-deduplicator` — URL Deduplicator
-Takes the raw URL list and deduplicates by root domain, keeping the highest-scoring 
-URL per university. Uses keyword-based scoring to prioritize relevant pages.
+#### 2. `deduplication_engine` — Data Deduplication & Scoring
+Deduplicates by root domain and applies keyword-based scoring to keep the highest-quality record per source.
 
-### 3. `email-collector` — Contact Email Extractor
-Visits each URL, extracts contact emails, scores them by relevance, and exports 
-a sorted CSV ready for outreach.
+#### 3. `contact_extractor` — Contact Extraction & Ranking
+Visits each URL, extracts contact information, scores by relevance, and exports a structured ranked CSV.
 
-### 4. `email-sender` — Automated Email Sequence
-Google Apps Script that sends the outreach emails automatically. Handles intro 
-emails and follow-ups with configurable delays, daily send limits, randomized 
-timing to appear human, quota detection, and full logging to Google Sheets.
+#### 4. `outreach_automation` — Automated Sequence Engine
+Google Apps Script automation handling sequenced delivery with rate limits, randomized timing, quota detection, and full Google Sheets logging.
 
-## How It Works Together
-1. Run the search scraper to build a list of target URLs
-2. Run the deduplicator to clean the list — one URL per domain
-3. Run the email extractor to get the contact email for each site
-4. Load the contacts into Google Sheets and let the email sender run automatically
+---
 
-## Tech
-Built with JavaScript, Chrome Extension Manifest V3, Chrome APIs, and Google Apps Script.
+#### How It Works
+1. `data_collector` builds the initial dataset
+2. `deduplication_engine` cleans and scores the data
+3. `contact_extractor` enriches each record with contact info and relevance scores
+4. `outreach_automation` sequences delivery automatically
+
+#### Results
+Reduced manual prospecting workload by ~90% across thousands of targets. Outputs clean structured CSV datasets ready for analysis or CRM import.
+
+#### Tech Stack
+JavaScript, Chrome Extension Manifest V3, Chrome APIs, Google Apps Script
