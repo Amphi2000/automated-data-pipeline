@@ -1,4 +1,4 @@
-### Automated Data Collection & Scoring Pipeline
+### Automated Data Collection & Scoring Pipeline 
 
 End-to-end pipeline for automated prospect discovery, data extraction, deduplication, scoring, and outreach sequencing. Built to eliminate manual data work across thousands of targets.
 
